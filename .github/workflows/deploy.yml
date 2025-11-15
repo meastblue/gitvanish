@@ -18,13 +18,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          deno-version: v2.x
+          node-version: "20"
 
-      - name: Build
-        run: deno task build
+      - name: Install dependencies
+        run: npm install astro @astrojs/react @tailwindcss/vite tailwindcss react react-dom @octokit/rest
+
+      - name: Build with Node
+        run: npx astro build
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
