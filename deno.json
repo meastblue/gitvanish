@@ -2,7 +2,7 @@
   "nodeModulesDir": "auto",
   "tasks": {
     "dev": "deno run -A npm:astro dev",
-    "build": "deno run -A npm:astro build",
+    "build": "deno run -A --node-modules-dir=auto npm:astro build",
     "preview": "deno run -A npm:astro preview",
     "astro": "deno run -A npm:astro"
   },
